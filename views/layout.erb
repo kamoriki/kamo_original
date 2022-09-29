@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="UTF-8">
+		<title>GoodGoods</title>
+		<link rel="shortcut icon" href="/assets/img/icon_webs.png">
+		<link rel="stylesheet" href="/assets/css/index.css">
+		<link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+	</head>
+	<body>
+		<header>
+			<div class="header-inner">
+				<div class="logo">
+					<a href="/"><img src="/assets/img/logo.png"></a>
+				</div>
+		        <% if !current_user.nil? %>
+		            <nav class="header-nav">
+		            	<div class="header-nav-item">
+		            		<form class="search-form">
+		            			<input type="search" class="search-form-input" placeholder="検索">
+		            			<img src="/assets/img/search.png" width="30" height="30">
+		            		</form>
+		            	</div>
+		            	<div class="header-nav-item">
+		            		<a href="/home" class="user-icon"><img src="<%= current_user.image %>" alt="プロフィール画像" width="40" height="40"></a>
+		            	</div>
+		            	<div class="header-nav-item">
+							<a href="/signout" class="header-button">ログアウト</a>    
+						</div>
+					</nav>
+		        <% else %>
+		            <nav class="header-nav">
+		            	<div class="header-nav-item">
+		            		<form class="search-form">
+		            			<input type="search" class="search-form-input" placeholder="検索">
+		            			<img src="/assets/img/search.png" width="30" height="30">
+		            		</form>
+		            	</div>
+		            	<div class="header-nav-item">
+		            		<a href="/signup" class="header-button">新規登録</a>
+		            	</div>
+		            	<div class="header-nav-item">
+		            		<a href="/signin" class="header-button">ログイン</a>
+		            	</div>
+		            </nav>
+		        <% end %>
+			</div>
+		</header>
+		<main>
+			<%= yield %>
+			<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+		</main>
+	</body>
+</html>

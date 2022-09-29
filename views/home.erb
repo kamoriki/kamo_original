@@ -1,0 +1,98 @@
+<section class="center-vertical">
+	<h1 class="home"><%= current_user.name %>の投稿</h1>
+	<% if User.find(session[:user]).contributions.empty? %>
+		<p class="home">投稿がありません</p>
+	<% else %>
+		<% User.find(session[:user]).contributions.each do |contribution| %>
+			<div class="container">
+				<div class="form2">
+	        		<div class="user-informations">
+	        			<img src="<%= current_user.image %>" class="user-information" alt="プロフィール画像" width="40" height="40">
+						<p class="user-information"><%= current_user.name %></p>
+					</div>
+					<p>サイト名:<%= contribution.shop_name %></p>
+					<p>商品名:<%= contribution.item_name %></p>
+					<p>商品についてのコメント:<%= contribution.message %></p>
+					<p><img src="<%= contribution.item_image %>" alt="商品画像" width="200" height="200"></p>
+					<a href="<%= contribution.item_url %>">商品を購入する</a>
+					<p><a href="/contributions/<%= contribution.id %>/delete">削除</a></p>
+					<p><a href="/contributions/<%= contribution.id %>/edit">編集</a></p>
+					<% contribution.liked_users.each do |liked_user| %>
+						<div class="user-box">
+							<img src="<%= liked_user.image %>" alt="user_image" width="40" height="40">
+						</div>
+					<% end%>
+					<% if session[:user] %>
+						<% if !contribution.liked_users.find_by(id: session[:user]) %>
+							<a href="/contributions/<%= contribution.id %>/like">いいね！</a>
+						<% else %>
+							<a href="/contributions/<%= contribution.id %>/dislike">いいね解除</a>
+						<% end %>
+						<form action="/contributions/<%= contribution.id %>/comment/done" method="post" class="comment-informations">
+            				<input type="text" name="statement" placeholder="コメントを入力..." class="comment-information" required>
+            				<input type="submit" value="コメントする" class="comment-information">
+          				</form>
+					<% end %>
+					<% contribution.commented_users.each do |commented_user| %>
+          				<div class="user-informations">
+            				<img src="<%= commented_user.image %>" class="user-information" alt="user_image" width="30" height="30">
+           					<p class="user-information commented_user-information"><%= commented_user.name %></p>
+          				</div>
+        			<% end %>
+					<% comments = Comment.where(contribution_id: contribution.id) %>
+			        <% comments.each do |comment| %>
+          				<p><%= comment.statement %></p>
+        			<% end %>
+			    </div>
+			</div>
+		<% end %>
+	<% end %>
+	<h1 class="home"><%= current_user.name %>のいいねした投稿</h1>
+	<% if User.find(session[:user]).liked_contributions.empty? %>
+		<p class="home">いいねした投稿がありません</p>
+	<% else %>
+		<% User.find(session[:user]).liked_contributions.each do |liked_contribution| %>
+			<div class="container">
+				<div class="form2">
+						<div class="user-informations">
+							<img src="<%= User.find(liked_contribution.user_id).image %>" class="user-information" alt="プロフィール画像" width="40" height="40">
+							<p class="user-information"><%= User.find(liked_contribution.user_id).name %></p>
+						</div>
+					<p>サイト名:<%= liked_contribution.shop_name %></p>
+					<p>商品名:<%= liked_contribution.item_name %></p>
+					<p>商品についてのコメント:<%= liked_contribution.message %></p>
+					<p><img src="<%= liked_contribution.item_image %>" alt="商品画像" width="200" height="200"></p>
+					<a href="<%= liked_contribution.item_url %>">商品を購入する</a>
+					<% User.find(session[:user]).contributions.each do |contribution| %>
+						<% contribution.liked_users.each do |liked_user| %>
+							<div class="user-box">
+								<img src="<%= liked_user.image %>" alt="user_image" width="40" height="40">
+							</div>
+						<% end%>
+						<% if session[:user] %>
+		          			<% if !contribution.liked_users.find_by(id: session[:user]) %>
+		            			<a href="/contributions/<%= contribution.id %>/like">いいね！</a>
+		        			<% else %>
+		            			<a href="/contributions/<%= contribution.id %>/dislike">いいね解除</a>
+		          			<% end %>
+		          			<form action="/contributions/<%= contribution.id %>/comment/done" method="post" class="comment-informations">
+            					<input type="text" name="statement" placeholder="コメントを入力..." class="comment-information" required>
+            					<input type="submit" value="コメントする" class="comment-information">
+          					</form>
+		        		<% end %>
+		        		<% contribution.commented_users.each do |commented_user| %>
+			          		<div class="user-informations">
+			            		<img src="<%= commented_user.image %>" class="user-information" alt="user_image" width="30" height="30">
+			            		<p class="user-information commented_user-information"><%= commented_user.name %></p>
+			          		</div>
+			        	<% end %>
+			        	<% comments = Comment.where(contribution_id: contribution.id) %>
+			        	<% comments.each do |comment| %>
+			          		<p><%= comment.statement %></p>
+			        	<% end %>
+	        		<% end %>
+	        	</div>
+			</div>
+		<% end %>
+	<% end %>
+</section>

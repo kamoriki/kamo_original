@@ -1,0 +1,7 @@
+<section class="center-vertical">
+	<h1>コメントの更新</h1>
+	<form action="/contributions/<%= @contributions.id %>/edit" method="post" class="center-vertical">
+		<input type="text" name="message" placeholder="コメント" value="<%= @contributions.message %>">
+		<input type="submit" value="更新">
+	</form>
+</section>

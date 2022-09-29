@@ -1,0 +1,265 @@
+header {
+  box-sizing: border-box;
+  width: 100%;
+  background: #ffdbed;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1024px;
+  height: 60px;
+  padding: 0 0.8em;
+  margin: 0 auto;
+  font-size: 1.2em;
+}
+
+.header-nav {
+  display: flex;
+  align-items: center;
+}
+
+.header-nav-item {
+  display: flex;
+  align-items: center;
+  margin-left: 16px;
+}
+
+.logo img {
+  width: 254px;
+  display: flex;
+  align-items: center;
+}
+
+.user-icon img {
+  border-radius: 50%;
+}
+
+.search-form {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-form-input {
+  box-sizing: border-box;
+  width: 140px;
+  height: 28px;
+  padding: 0 8px 0 30px;
+  margin: 5px 0;
+  font-size: 12px;
+  color: #333;
+  border: solid 1px #ccc;
+  border-radius: 5px;
+  outline: 0;
+  transition: 0.3s;
+  -webkit-appearance: none;
+}
+
+.header-button {
+  box-sizing: border-box;
+  display: inline-block;
+  padding: 0.5em 1.2em;
+  font-size: 18px;
+  text-decoration: none;
+  cursor: pointer;
+  user-select: none;
+  font-weight: bold;
+  color: #fff;
+  background: #00b5ad;
+  border: 1px #00b5ad solid;
+  border-radius: 3px;
+}
+
+.main {
+  position: absolute;
+  top: 64px;
+  width: 100%;
+  height: auto;
+  min-height: 100%;
+  background-color: rgb(245, 248, 250);
+}
+
+.container {
+  max-width: 600px;
+  margin: 60px auto;
+  padding-left: 15px;
+  padding-right: 15px;
+  clear: both;
+}
+
+.form-heading {
+  font-weight: 300;
+  margin: 60px 0px 20px;
+  font-size: 48px;
+  color: rgb(188, 200, 212);
+  text-align: center;
+}
+
+.form {
+  max-width: 600px;
+  margin: 0px auto;
+  background-color: white;
+  box-shadow: rgb(193 206 215) 0px 2px 6px;
+}
+
+.form-body {
+  padding: 30px;
+  width: 600px;
+  height: 400px;
+}
+
+.form input {
+  width: 518px;
+  border: 1px solid rgb(216, 218, 223);
+  padding: 10px;
+  color: rgb(87, 87, 95);
+  font-size: 16px;
+  letter-spacing: 2px;
+  border-radius: 2px;
+}
+
+input {
+  background-color: transparent;
+  outline-width: 0px;
+}
+
+p {
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+
+.form input[value="登録"] {
+  background-color: rgb(62, 205, 198);
+  color: white;
+  cursor: pointer;
+  font-weight: 300;
+  width: 120px;
+  border-radius: 2px;
+  margin-top: 8px;
+  margin-bottom: 0px;
+  margin-right: 60px;
+  float: right;
+}
+
+.form input[value="ログイン"] {
+  background-color: rgb(62, 205, 198);
+  color: white;
+  cursor: pointer;
+  font-weight: 300;
+  width: 120px;
+  border-radius: 2px;
+  margin-top: 8px;
+  margin-bottom: 0px;
+  margin-right: 60px;
+  float: right;
+}
+
+.form-body2 {
+  padding: 30px;
+  width: 600px;
+  height: 227px;
+}
+
+.main2 {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  min-height: 100%;
+  background-color: rgb(245, 248, 250);
+}
+
+.button-none {
+  padding-left: 183.35px;
+}
+
+.form-heading2 {
+  font-size: 24px;
+  color: #000;
+}
+
+.form-body3 {
+  padding: 30px;
+  wigth: 600px;
+  height: 515px;
+}
+
+.form input[value="投稿"] {
+  background-color: rgb(62, 205, 198);
+  color: white;
+  cursor: pointer;
+  font-weight: 300;
+  width: 120px;
+  border-radius: 2px;
+  margin-top: 8px;
+  margin-bottom: 0px;
+  float: right;
+}
+
+.form2 {
+  max-width: 600px;
+  margin: 0px auto;
+  background-color: white;
+  box-shadow: rgb(193 206 215) 0px 2px 6px;
+}
+
+.user-informations {
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.user-information {
+  float: left;
+}
+
+.user-name {
+  font-size: 24px;
+  padding-left: 10px;
+}
+
+.commented_user-information {
+  padding-left: 6px;
+}
+
+.comment-informations {
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.comment-information {
+  float: left;
+  width: 360px;
+  border: 1px solid rgb(216, 218, 223);
+  padding: 10px;
+  color: rgb(87, 87, 95);
+  font-size: 16px;
+  letter-spacing: 2px;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  margin-left: 16px;
+}
+
+.comment-informations input[value="コメントする"] {
+  background-color: rgb(62, 205, 198);
+  color: white;
+  cursor: pointer;
+  font-weight: 300;
+  width: 140px;
+  border-radius: 2px;
+  margin-top: 8px;
+  margin-bottom: 0px;
+  margin-left: 20px;
+  float: right;
+  text-align: center;
+}
+
+.home {
+  text-align: center
+}
