@@ -36,7 +36,7 @@
         <p>商品名:<%= contribution.item_name %></p>
         <p>商品についてのコメント:<%= contribution.message %></p>
         <p><img src="<%= contribution.item_image %>" alt="商品画像" width="200" height="200"></p>
-        <a href="<%= contribution.item_url %>">商品を購入する</a><br>
+        <a href="<%= contribution.item_url %>" target="_blank" rel="noopener noreferrer">商品を購入する</a><br>
         <% contribution.liked_users.each do |liked_user| %>
 		      <div class="user-box">
 			      <img src="<%= liked_user.image %>" alt="user_image" width="40" height="40">

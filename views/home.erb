@@ -14,7 +14,7 @@
 					<p>商品名:<%= contribution.item_name %></p>
 					<p>商品についてのコメント:<%= contribution.message %></p>
 					<p><img src="<%= contribution.item_image %>" alt="商品画像" width="200" height="200"></p>
-					<a href="<%= contribution.item_url %>">商品を購入する</a>
+					<a href="<%= contribution.item_url %>"  target="_blank" rel="noopener noreferrer">商品を購入する</a>
 					<p><a href="/contributions/<%= contribution.id %>/delete">削除</a></p>
 					<p><a href="/contributions/<%= contribution.id %>/edit">編集</a></p>
 					<% contribution.liked_users.each do |liked_user| %>
@@ -62,7 +62,7 @@
 					<p>商品名:<%= liked_contribution.item_name %></p>
 					<p>商品についてのコメント:<%= liked_contribution.message %></p>
 					<p><img src="<%= liked_contribution.item_image %>" alt="商品画像" width="200" height="200"></p>
-					<a href="<%= liked_contribution.item_url %>">商品を購入する</a>
+					<a href="<%= liked_contribution.item_url %>" target="_blank" rel="noopener noreferrer">商品を購入する</a>
 					<% User.find(session[:user]).contributions.each do |contribution| %>
 						<% contribution.liked_users.each do |liked_user| %>
 							<div class="user-box">
